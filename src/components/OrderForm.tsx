@@ -1,14 +1,15 @@
+// components/OrderForm.tsx
 import { useQuery, useMutation } from '@apollo/client';
 import { useState } from 'react';
 import { GET_PRODUCTS } from '../graphql/queries';
-import { PLACE_ORDER } from '../graphql/mutations';
+import { PLACE_MULTI_ORDER } from '../graphql/mutations';
 import type { Product } from '../types/Product';
 
 const OrderForm = () => {
   const [quantities, setQuantities] = useState<Record<number, number>>({});
   const [orderedBy, setOrderedBy] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
-  const [placeOrder, { loading: placing, error }] = useMutation(PLACE_ORDER);
+  const [placeMultiOrder, { loading: placing, error }] = useMutation(PLACE_MULTI_ORDER);
 
   const { data, loading } = useQuery(GET_PRODUCTS, {
     variables: {
@@ -38,13 +39,16 @@ const OrderForm = () => {
       return;
     }
 
-    const productIds = cart.flatMap((p) => Array(p.quantity).fill(p.id));
+    const orderItems = cart.map((p) => ({
+      productId: p.id,
+      quantity: p.quantity,
+    }));
 
     try {
-      await placeOrder({
+      await placeMultiOrder({
         variables: {
           orderedBy,
-          products: productIds,
+          products: orderItems,
         },
       });
       setSuccessMsg('Order placed successfully!');
@@ -109,7 +113,7 @@ const OrderForm = () => {
           className="bg-green-600 text-white px-4 py-2 disabled:opacity-50"
           disabled={placing || cart.length === 0}
         >
-          {placing ? 'Placing Order...' : 'Submit Order'}
+          {placing ? 'Placing Order…' : 'Submit Order'}
         </button>
         {error && <p className="text-red-600">Error: {error.message}</p>}
         {successMsg && <p className="text-green-700">{successMsg}</p>}
