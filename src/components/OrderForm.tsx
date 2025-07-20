@@ -1,4 +1,3 @@
-// components/OrderForm.tsx
 import { useQuery, useMutation } from '@apollo/client';
 import { useState } from 'react';
 import { GET_PRODUCTS } from '../graphql/queries';
