@@ -11,8 +11,8 @@ export default function Header() {
       </Link>
 
       <nav className="space-x-6 text-white font-medium">
-        <Link to="/" className="hover:text-[#19a9a0]">Product Catalog</Link>
-        <Link to="/order" className="hover:text-[#19a9a0]">Order</Link>
+        {/* <Link to="/" className="hover:text-[#19a9a0]">Product Catalog</Link> */}
+        <Link to="/" className="hover:text-[#19a9a0]">Shop</Link>
         <Link to="/admin" className="hover:text-[#19a9a0]">Admin</Link>
       </nav>
     </div>

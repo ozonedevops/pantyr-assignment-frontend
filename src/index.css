@@ -47,7 +47,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #19a9a0;
 }
 button:focus,
 button:focus-visible {
@@ -69,3 +69,16 @@ button:focus-visible {
 
 @import "tailwindcss";
 
+
+/* Prevent inheriting global button styles */
+.clear-cart-btn,
+.remove-btn {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  color: #19a9a0;
+}
