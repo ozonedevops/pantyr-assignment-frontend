@@ -32,12 +32,12 @@ Simple web store using our GraphQL API with the following features:
 
 ## Requirements
 - [ozonedevops/Pantyr Assignment GraphQL API] (https://github.com/ozonedevops/pantyr-assignment)
-- Vite + React + TypeScript
 
 ## Usage
 - clone the https://github.com/ozonedevops/pantyr-assignment repository to your machine
 - clone the https://github.com/ozonedevops/pantyr-assignment-frontend repository to your machine
-- install dependencies for both repositories
+- install nodeJS if you haven't already: https://nodejs.org/en/download
+- install the dependencies for both repositories (open terminal in each cloned directory and run `npm i`)
 - open a new terminal in the pantyr-assignment directory and run: *npm run start:watch* to start the GraphQL API
 - open a new terminal in the pantyr-assignment-frontend directory and run: *npm run dev* to start the simple webstore
 - open a browser and go to: *http://localhost:5173/* This wil open the simple web store that demonstrates the use of the GraphQL api created in the Pantyr assignment
