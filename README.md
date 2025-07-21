@@ -28,6 +28,8 @@ Simple web store using our GraphQL API with the following features:
     - using a query to show products that have a low stock
     - using a query to show store metrics (total orders and total revenue)
 
+
+
 ## Requirements
 - [ozonedevops/Pantyr Assignment GraphQL API] (https://github.com/ozonedevops/pantyr-assignment)
 - Vite + React + TypeScript
@@ -39,3 +41,8 @@ Simple web store using our GraphQL API with the following features:
 - open a new terminal in the pantyr-assignment directory and run: *npm run start:watch* to start the GraphQL API
 - open a new terminal in the pantyr-assignment-frontend directory and run: *npm run dev* to start the simple webstore
 - open a browser and go to: *http://localhost:5173/* This wil open the simple web store that demonstrates the use of the GraphQL api created in the Pantyr assignment
+
+## Preview:
+![Screenshot of Pantyr Web Store Frontend that demonstrates the use of the GraphQL API that was made for the Pantyr assignment, Shop.](/screenshots/Pantyr-assignment-frontend-Shop-Cart-Summary.png)
+
+![Screenshot of Pantyr Web Store Frontend that demonstrates the use of the GraphQL API that was made for the Pantyr assignment, Admin Panel.](/screenshots/Pantyr-assignment-frontend-Admin-Panel.png)
