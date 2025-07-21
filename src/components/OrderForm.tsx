@@ -58,67 +58,73 @@ const OrderForm = () => {
     }
   };
 
-  return (
-    <div className="space-y-6">
-      <h2 className="text-xl font-bold">Place an Order</h2>
-
+return (
+  <div className="flex pt-20 max-w-7xl mx-auto px-4">
+    {/* Right: Fixed cart summary */}
+    <aside className="w-70 fixed top-20 right-4 bg-white shadow-lg border rounded-lg p-4 z-10">
+    {/* <div className="fixed top-20 right-4 bg-white shadow-lg rounded p-4 w-80 z-50"> */}
+      <h3 className="font-semibold mb-2">Cart Summary</h3>
       {loading && <p>Loading products…</p>}
-
-      <ul className="space-y-2">
-        {products.map((p) => (
-          <li key={p.id} className="border p-2">
-            <div className="flex justify-between items-center">
-              <span>
-                {p.title} – ${p.price} ({p.stock} in stock)
-              </span>
-              <input
-                type="number"
-                min={0}
-                max={p.stock}
-                value={quantities[p.id] || 0}
-                onChange={(e) => handleQuantityChange(p.id, Number(e.target.value))}
-                className="w-16 border px-2"
-              />
-            </div>
-          </li>
-        ))}
-      </ul>
-
-      <div className="pt-4">
-        <h3 className="font-semibold">Cart Summary</h3>
-        {cart.length === 0 ? (
-          <p>No products selected.</p>
-        ) : (
-          <ul className="space-y-1">
-            {cart.map((item) => (
-              <li key={item.id}>
-                {item.title} × {item.quantity} = ${(item.price * item.quantity).toFixed(2)}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-
-      <div className="space-y-2 pt-4">
+      {cart.length === 0 ? (
+        <p className="text-gray-600">No products selected.</p>
+      ) : (
+        <ul className="space-y-1">
+          {cart.map((item) => (
+            <li key={item.id}>
+              {item.title} × {item.quantity} = ${(item.price * item.quantity).toFixed(2)}
+            </li>
+          ))}
+        </ul>
+      )}
+      <div className="mt-4 space-y-2">
         <input
           type="text"
           placeholder="Your name or email"
           value={orderedBy}
           onChange={(e) => setOrderedBy(e.target.value)}
-          className="border px-2 py-1 w-full"
+          className="border px-2 py-1 w-full rounded"
         />
         <button
           onClick={handleSubmit}
-          className="bg-green-600 text-white px-4 py-2 disabled:opacity-50"
+          className="bg-green-600 text-white px-4 py-2 w-full rounded disabled:opacity-50"
           disabled={placing || cart.length === 0}
         >
           {placing ? 'Placing Order…' : 'Submit Order'}
         </button>
-        {error && <p className="text-red-600">Error: {error.message}</p>}
-        {successMsg && <p className="text-green-700">{successMsg}</p>}
       </div>
+      {error && <p className="text-red-600 mt-2">Error: {error.message}</p>}
+      {successMsg && <p className="text-green-700 mt-2">{successMsg}</p>}
+    {/* </div> */}
+    </aside>
+    
+    
+    {/* Scrollable product form left from cart summary */}
+    <div className="flex-1 pr-72 space-y-6">
+      {/* <h1 className="font-semibold mb-2">Place an order</h1> */}
+    <ul className="max-w-4xl space-y-2 pt-4">
+      {products.map((p) => (
+        <li key={p.id} className="border p-2 bg-white rounded shadow">
+          <div className="flex justify-between items-center">
+            <span>
+              {p.title} – ${p.price} ({p.stock} in stock)
+            </span>
+            <input
+              type="number"
+              min={0}
+              max={p.stock}
+              value={quantities[p.id] || 0}
+              onChange={(e) => handleQuantityChange(p.id, Number(e.target.value))}
+              className="w-16 border px-2"
+            />
+          </div>
+        </li>
+      ))}
+    </ul>
     </div>
-  );
+  </div>
+);
+
+
 };
 
 export default OrderForm;

@@ -115,72 +115,81 @@ const ProductList = () => {
 
   const totalCount = data?.products?.totalCount ?? 0;
 
-  return (
-    <div className="mt-4 space-y-6">
-      <h2 className="text-xl font-bold">Product Catalog</h2>
+return (
+  <div className="mx-auto px-4 mt-4 space-y-6 ">
+    <div className="sticky top-[64px] z-20 mx-auto bg-white pb-4 pt-2 w-fit">
+      <h2 className="text-xl pl-4 font-bold">Product Catalog</h2>
+      <form className="bg-white p-4 rounded shadow space-y-2 sm:space-x-2 sm:space-y-0 sm:flex sm:items-end">
+      <input
+        className="border rounded px-2 py-1"
+        placeholder="Title contains"
+        value={formFilters.titleContains}
+        onChange={e => setFormFilters({ ...formFilters, titleContains: e.target.value })}
+      />
+      <input
+        className="border rounded px-2 py-1"
+        type="number"
+        placeholder="Min price"
+        value={formFilters.minPrice}
+        onChange={e => setFormFilters({ ...formFilters, minPrice: e.target.value })}
+      />
+      <input
+        className="border rounded px-2 py-1"
+        type="number"
+        placeholder="Max price"
+        value={formFilters.maxPrice}
+        onChange={e => setFormFilters({ ...formFilters, maxPrice: e.target.value })}
+      />
+      <select
+        className="border rounded px-2 py-1"
+        value={formFilters.sortField}
+        onChange={e => setFormFilters({ ...formFilters, sortField: e.target.value })}
+      >
+        <option value="title">Title</option>
+        <option value="price">Price</option>
+      </select>
+      <select
+        className="border rounded px-2 py-1"
+        value={formFilters.sortDir}
+        onChange={e => setFormFilters({ ...formFilters, sortDir: e.target.value })}
+      >
+        <option value="asc">Asc</option>
+        <option value="desc">Desc</option>
+      </select>
+      <button type="button" onClick={applyFilters} className="bg-blue-600 text-white px-3 py-1 rounded">
+        Apply
+      </button>
+      <button type="button" onClick={resetFilters} className="bg-gray-400 text-white px-3 py-1 rounded">
+        Reset
+      </button>
+    </form>
 
-      <form className="space-x-2">
-        <input
-          placeholder="Title contains"
-          value={formFilters.titleContains}
-          onChange={e => setFormFilters({ ...formFilters, titleContains: e.target.value })}
-        />
-        <input
-          type="number"
-          placeholder="Min price"
-          value={formFilters.minPrice}
-          onChange={e => setFormFilters({ ...formFilters, minPrice: e.target.value })}
-        />
-        <input
-          type="number"
-          placeholder="Max price"
-          value={formFilters.maxPrice}
-          onChange={e => setFormFilters({ ...formFilters, maxPrice: e.target.value })}
-        />
-        <select
-          value={formFilters.sortField}
-          onChange={e => setFormFilters({ ...formFilters, sortField: e.target.value })}
-        >
-          <option value="title">Title</option>
-          <option value="price">Price</option>
-        </select>
-        <select
-          value={formFilters.sortDir}
-          onChange={e => setFormFilters({ ...formFilters, sortDir: e.target.value })}
-        >
-          <option value="asc">Ascending</option>
-          <option value="desc">Descending</option>
-        </select>
-
-        <button type="button" onClick={applyFilters} className="bg-blue-500 text-white px-2 py-1">
-          Apply Filters
-        </button>
-        <button type="button" onClick={resetFilters} className="bg-gray-300 px-2 py-1">
-          Reset Filters
-        </button>
-      </form>
-
-      <div className="text-sm text-gray-600">
+      <div className="text-sm text-gray-600 pt-2 pl-4">
         Showing <strong>{productList.length}</strong> of <strong>{totalCount}</strong> products
       </div>
-
-      <ul className="border-t divide-y">
-        {productList.map(p => (
-          <li key={p.id} className="py-2">
-            {p.title} – ${p.price} – {p.stock} in stock
-          </li>
-        ))}
-      </ul>
-
-      {hasMore && (
-        <div className="pt-4">
-          <button onClick={handleLoadMore} className="bg-blue-600 text-white px-4 py-2">
-            Load More
-          </button>
-        </div>
-      )}
     </div>
-  );
+
+    <div className="flex justify-center">
+    <ul className="divide-y border-t">
+      {productList.map(p => (
+        <li key={p.id} className="py-2 px-4">
+          {p.title} – ${p.price} – {p.stock} in stock
+        </li>
+      ))}
+    </ul>
+    </div>
+
+    {hasMore && (
+      <div className="flex justify-center pt-4">
+        <button onClick={handleLoadMore} className="bg-blue-600 text-white px-4 py-2 rounded">
+          Load More
+        </button>
+      </div>
+    )}
+    
+  </div>
+);
+
 };
 
 export default ProductList;
