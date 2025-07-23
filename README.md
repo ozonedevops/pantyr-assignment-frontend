@@ -43,6 +43,14 @@ Simple web store using our GraphQL API with the following features:
 - open a browser and go to: *http://localhost:5173/* This wil open the simple web store that demonstrates the use of the GraphQL api created in the Pantyr assignment
 
 ## Preview:
-![Screenshot of Pantyr Web Store Frontend that demonstrates the use of the GraphQL API that was made for the Pantyr assignment, Shop.](/screenshots/Pantyr-assignment-frontend-Shop-Cart-Summary.png)
+![Screenshot of Pantyr Web Store Frontend that demonstrates the use of the GraphQL API that was made for the Pantyr assignment, Shop page (light mode).](/screenshots/Pantyr-assignment-frontend-Shop-Cart-Summary.png)
+Figure 1: Shop page [light mode]
 
-![Screenshot of Pantyr Web Store Frontend that demonstrates the use of the GraphQL API that was made for the Pantyr assignment, Admin Panel.](/screenshots/Pantyr-assignment-frontend-Admin-Panel.png)
+![Screenshot of Pantyr Web Store Frontend that demonstrates the use of the GraphQL API that was made for the Pantyr assignment, Admin page (light mode).](/screenshots/Pantyr-assignment-frontend-Admin-Panel.png)
+Figure 2: Admin page [light mode]
+
+![Screenshot of Pantyr Web Store Frontend that demonstrates the use of the GraphQL API that was made for the Pantyr assignment, Shop page (dark mode).](/screenshots/Pantyr-assignment-frontend-Shop-Cart-Summary-dark.png)
+Figure 1: Shop page [dark mode]
+
+![Screenshot of Pantyr Web Store Frontend that demonstrates the use of the GraphQL API that was made for the Pantyr assignment, Admin page (dark mode).](/screenshots/Pantyr-assignment-frontend-Admin-Panel-dark.png)
+Figure 2: Admin page [dark mode]
