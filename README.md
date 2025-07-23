@@ -50,7 +50,7 @@ Figure 1: Shop page [light mode]
 Figure 2: Admin page [light mode]
 
 ![Screenshot of Pantyr Web Store Frontend that demonstrates the use of the GraphQL API that was made for the Pantyr assignment, Shop page (dark mode).](/screenshots/Pantyr-assignment-frontend-Shop-Cart-Summary-dark.png)
-Figure 1: Shop page [dark mode]
+Figure 3: Shop page [dark mode]
 
 ![Screenshot of Pantyr Web Store Frontend that demonstrates the use of the GraphQL API that was made for the Pantyr assignment, Admin page (dark mode).](/screenshots/Pantyr-assignment-frontend-Admin-Panel-dark.png)
-Figure 2: Admin page [dark mode]
+Figure 4: Admin page [dark mode]
