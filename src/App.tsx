@@ -7,7 +7,7 @@ import Header from './components/Header';
 const App = () => {
   return (
     <Router>
-      <div className="min-h-screen w-full bg-gray-100 text-gray-900">
+      <div className="min-h-screen w-full bg-gray-100 dark:bg-zinc-800 text-gray-900">
         <Header />
         <main className="mx-auto px-4 pt-20 space-y-6">
           <Routes>

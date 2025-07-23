@@ -181,10 +181,10 @@ const OrderForm = () => {
 
   return (
     <div className="flex pt-20 max-w-7xl mx-auto px-4">
-      <aside className="w-82 fixed top-20 right-4 bg-white shadow-lg border rounded-lg p-4 z-10">
+      <aside className="w-82 fixed top-20 right-4 bg-white dark:bg-[#1a1a1a] dark:border-zinc-950 dark:text-zinc-200 shadow-lg border rounded-lg p-4 z-10">
         <h3 className="font-semibold mb-2">Cart Summary</h3>
         {cart.length === 0 ? (
-          <p className="text-gray-600">No products selected.</p>
+          <p className="text-gray-600 dark:text-zinc-200">No products selected.</p>
         ) : (
           <div>
             <ul className="space-y-1 mb-4">
@@ -192,7 +192,7 @@ const OrderForm = () => {
                 <li key={item.id} className="flex justify-between items-center text-sm">
                   <span>{item.title} × {item.quantity}</span>
                   <div className="flex gap-2 items-center">
-                    <span className="text-gray-600">${(item.price * item.quantity).toFixed(2)}</span>
+                    <span className="text-gray-600 dark:text-zinc-200">${(item.price * item.quantity).toFixed(2)}</span>
                     <button onClick={() => handleRemoveProduct(item.id)} className="remove-btn text-gray-600"><FaTrash className="w-4 h-4" /></button>
                   </div>
                 </li>
@@ -212,7 +212,7 @@ const OrderForm = () => {
           />
           <button
             onClick={handleSubmit}
-            className="bg-green-600 text-white px-4 py-2 w-full rounded disabled:opacity-50"
+            className="text-white px-4 py-2 w-full rounded disabled:opacity-50"
             disabled={placing || cart.length === 0}
           >
             {placing ? 'Placing Order…' : 'Submit Order'}
@@ -223,13 +223,13 @@ const OrderForm = () => {
       </aside>
 
       <div className="flex-1 pr-80 space-y-6">
-        <div className="sticky top-[64px] z-20 bg-white pt-2 pb-4">
-          <h2 className="text-xl font-bold pl-2">Order Products</h2>
+        <div className="sticky top-[64px] z-20 bg-white dark:bg-[#1a1a1a] pt-2 pb-4">
+          <h2 className="text-xl font-bold pl-2 dark:text-zinc-200">Order Products</h2>
 
           {/* Filters */}
-          <div className="bg-white p-4 rounded shadow space-y-2 sm:space-x-2 sm:space-y-0 sm:flex sm:items-end sticky top-[64px] z-20">
+          <div className="bg-white dark:bg-[#1a1a1a] dark:text-zinc-200 p-4 rounded shadow space-y-2 sm:space-x-2 sm:space-y-0 sm:flex sm:items-end sticky top-[64px] z-20">
             <input
-              className="border rounded px-2 py-1"
+              className="border dark:text-zinc-200 rounded px-2 py-1"
               placeholder="Title contains"
               value={formFilters.titleContains}
               onChange={e => setFormFilters({ ...formFilters, titleContains: e.target.value })}
@@ -272,20 +272,20 @@ const OrderForm = () => {
             </button>
           </div>
 
-          <div className="text-sm text-gray-600 pt-2 pl-4">
+          <div className="text-sm text-gray-600 dark:text-zinc-300 pt-2 pl-4">
             Showing <strong>{productList.length}</strong> of <strong>{totalCount}</strong> products
           </div>
       </div>
 
-        <ul className="space-y-2">
+        <ul className="space-y-2 dark:text-gray-200">
           {productList.map((p: Product) => (
-            <li key={p.id} className="border p-2 bg-white rounded shadow">
+            <li key={p.id} className="border p-2 bg-white dark:bg-[#1a1a1a] dark:border-zinc-950 rounded shadow">
               <div className="flex justify-between items-center">
                 <span>
                   {p.title} [ID: {p.id}] – ${p.price} ({p.stock} in stock)
                 </span>
                 <div className="flex items-center gap-2">
-                  <span className="text-sm text-gray-700">Order amount:</span>
+                  <span className="text-sm text-gray-700 dark:text-gray-200">Order amount:</span>
                   <input
                     type="number"
                     min={0}

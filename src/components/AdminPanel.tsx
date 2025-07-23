@@ -18,11 +18,11 @@ const AdminPanel = () => {
 
   return (
     <div className="max-w-4xl mx-auto px-4 pt-20 space-y-10">
-      <h2 className="text-2xl font-bold text-center">Admin Panel</h2>
+      <h2 className="text-2xl font-bold text-center dark:text-white">Admin Panel</h2>
 
       <div className="space-y-8">
         {/* Add Product */}
-        <div className="border rounded-lg p-6 bg-white shadow">
+        <div className="border rounded-lg p-6 bg-white dark:bg-[#1a1a1a] dark:text-zinc-200 dark:border-zinc-950 shadow">
           <h3 className="text-lg font-semibold mb-4 text-center">Add New Product</h3>
           <div className="grid gap-4">
             <p>Product Title:</p>
@@ -62,7 +62,7 @@ const AdminPanel = () => {
         </div>
 
         {/* Update Price */}
-        <div className="border rounded-lg p-6 bg-white shadow">
+        <div className="border rounded-lg p-6 bg-white dark:bg-[#1a1a1a] dark:text-zinc-200 dark:border-zinc-950 shadow">
           <h3 className="text-lg font-semibold mb-4 text-center">Update Product Price</h3>
           <div className="grid gap-4">
             <p>Product ID:</p>
@@ -93,7 +93,7 @@ const AdminPanel = () => {
         </div>
 
         {/* Update Stock */}
-        <div className="border rounded-lg p-6 bg-white shadow">
+        <div className="border rounded-lg p-6 bg-white dark:bg-[#1a1a1a] dark:text-zinc-200 dark:border-zinc-950 shadow">
           <h3 className="text-lg font-semibold mb-4 text-center">Update Product Stock</h3>
           <div className="grid gap-4">
             <p>Procuct ID:</p>
