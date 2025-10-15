@@ -29,7 +29,6 @@ Simple web store using our GraphQL API with the following features:
     - using a query to show store metrics (total orders and total revenue)
 
 
-
 ## Requirements
 - [ozonedevops/Pantyr Assignment GraphQL API] (https://github.com/ozonedevops/pantyr-assignment)
 
